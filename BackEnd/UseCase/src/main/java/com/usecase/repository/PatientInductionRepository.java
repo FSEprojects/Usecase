@@ -14,7 +14,7 @@ import com.usecase.entity.PatientInduction;
 public interface PatientInductionRepository extends JpaRepository<PatientInduction, Long> {
 	
 	
-	@Query(value = "select * from Patient p where p.userid=:id", nativeQuery = true)
+	@Query(value = "select * from Patient p where p.Patient_id=:id", nativeQuery = true)
 	Iterable<PatientInduction> searchPatientByid(@Param("id") Long id);
 	
 	@Query(value = "select * from Patient p where p.Patient_Name=:Patient_Name", nativeQuery = true)

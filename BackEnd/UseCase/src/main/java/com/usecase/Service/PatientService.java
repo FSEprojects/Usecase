@@ -19,23 +19,24 @@ public class PatientService {
 	PatientInductionRepository patientInductionRepository;
 	
 	
-	public PatientInduction loadpatientdata( PatientInduction patientInduction) {
-		Optional<PatientInduction> PatientInductionToUpdate = patientInductionRepository.findById((long) Id);
-		if (PatientInductionToUpdate.isPresent()) {
-			PatientInduction loadpatientdata = PatientInductionToUpdate.get();
-			loadpatientdata.setPatient_Name(patientInduction.getPatient_Name());
-			loadpatientdata.setPatient_Address(patientInduction.getPatient_Address());
-			loadpatientdata.setDOB(patientInduction.getDOB());
-			loadpatientdata.setEmail(patientInduction.getEmail());
-			loadpatientdata.setContact_Number(patientInduction.getContact_Number());
-			loadpatientdata.setDrug_Id(patientInduction.getDrug_Id());
-			loadpatientdata.setDrug_Name(patientInduction.getDrug_Name());
-			return patientInductionRepository.save(loadpatientdata);
-		}
-
-		return null;
-
-	}
+//	public PatientInduction loadpatientdata( PatientInduction patientInduction) {
+//		Optional<PatientInduction> PatientInductionToUpdate = patientInductionRepository.findById((long) Id);
+//		if (PatientInductionToUpdate.isPresent()) {
+//			PatientInduction loadpatientdata = PatientInductionToUpdate.get();
+//			loadpatientdata.setPatient_Name(patientInduction.getPatient_Name());
+//			loadpatientdata.setPatient_Address(patientInduction.getPatient_Address());
+//			loadpatientdata.setDOB(patientInduction.getDOB());
+//			loadpatientdata.setEmail(patientInduction.getEmail());
+//			loadpatientdata.setContact_Number(patientInduction.getContact_Number());
+//			loadpatientdata.setDrug_Id(patientInduction.getDrug_Id());
+//			loadpatientdata.setDrug_Name(patientInduction.getDrug_Name());
+//			return patientInductionRepository.save(loadpatientdata);
+//		}
+//
+//		return null;
+//
+//	}
+	
 	
 	
 
