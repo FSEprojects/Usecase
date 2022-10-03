@@ -1,0 +1,5 @@
+package com.usecase.controller;
+
+public class PatientController {
+
+}

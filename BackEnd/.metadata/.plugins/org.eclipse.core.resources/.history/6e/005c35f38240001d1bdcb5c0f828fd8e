@@ -1,0 +1,5 @@
+package com.usecase.repository;
+
+public interface PatientInductionRepository {
+
+}

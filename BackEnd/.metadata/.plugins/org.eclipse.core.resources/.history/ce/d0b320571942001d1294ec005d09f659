@@ -1,0 +1,14 @@
+package com.usecase.Service;
+
+import com.usecase.entity.PatientInduction;
+import com.usecase.repository.PatientInductionRepository;
+
+public class PatientService {
+	
+//	public Iterable<PatientInduction> searchPatientByid(Long id) {
+//		return PatientInductionRepository.searchPatientByid(Id);
+//	}
+	
+	
+
+}

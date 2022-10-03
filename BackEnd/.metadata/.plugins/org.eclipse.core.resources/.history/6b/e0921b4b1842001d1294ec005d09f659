@@ -1,0 +1,46 @@
+package com.usecase.controller;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.usecase.Service.PatientService;
+import com.usecase.entity.PatientInduction;
+import com.usecase.repository.PatientInductionRepository;
+
+@RestController
+@RequestMapping
+public class PatientController {
+	
+	@Autowired
+	PatientInductionRepository patientInductionRepository;
+	
+	@Autowired
+	PatientService patientService;
+	
+	@PostMapping("/load/patientdata")
+	ResponseEntity<?> loadpatientdata(@Valid @RequestBody PatientInduction patientInduction){
+		
+		if (!patientInductionRepository.existsById((long) Id)) {
+			return new ResponseEntity<>("Author does not exist", HttpStatus.UNAUTHORIZED);
+		}
+		PatientInduction.setId(Id);
+		PatientInduction loadpatientdata = PatientService.loadpatientdata(Id, patientInduction);
+		if (loadpatientdata == null) {
+			return new ResponseEntity<>("Patient Data does not exist", HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<>(loadpatientdata, HttpStatus.CREATED);
+		
+		
+	}
+	
+	
+	
+
+}

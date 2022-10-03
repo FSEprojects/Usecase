@@ -1,0 +1,5 @@
+package com.usecase.entity;
+
+public class Admin {
+
+}
