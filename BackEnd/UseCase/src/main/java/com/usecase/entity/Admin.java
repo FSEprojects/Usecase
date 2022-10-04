@@ -27,5 +27,10 @@ public class Admin {
 	@NotBlank(message="Username cannot be blank")
 	@Size(min=8,max=20)
 	private String password;
+	private String userrole;
+	
+//	public User() {
+//		
+//	}
 
 }

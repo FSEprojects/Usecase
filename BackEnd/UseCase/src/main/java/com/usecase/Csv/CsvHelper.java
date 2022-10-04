@@ -42,18 +42,20 @@ public class CsvHelper {
 		      Iterable<CSVRecord> csvRecords = csvParser.getRecords();
 
 		      for (CSVRecord csvRecord : csvRecords) {
+		    	  
 		    	 
 		    	  PatientInduction patientInduction = new PatientInduction(
 		    			  Long.parseLong(csvRecord.get("Patient_Id")), 
-		    			  csvRecord.get("Patient_Name"),  
+		    			  csvRecord.get("Patient_Name"),
 		    			  csvRecord.get("Patient_Address"),
 		    			  Long.parseLong(csvRecord.get("DOB")), 
-		    			csvRecord.get("Email"), 
-		    			Long.parseLong(csvRecord.get("Contact_Number")), 
-		    			  Integer.parseInt(csvRecord.get("Drug_Id")),
-		    			  csvRecord.get("Drug_Name"));
+		    			csvRecord.get("Email"),
+		    			Long.parseLong(csvRecord.get("Contact_Number")),
+		    	  Long.parseLong(csvRecord.get("Drug_Id")), TYPE);
+		    			  csvRecord.get("Drug_Name");
 		    	  patientlist.add(patientInduction);
 		    	  
+		    	  System.out.println("get");
 		    	  
 		    	 
 		      }

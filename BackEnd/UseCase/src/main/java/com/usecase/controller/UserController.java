@@ -17,7 +17,7 @@ import com.usecase.Service.AdminService;
 import com.usecase.entity.Admin;
 import com.usecase.repository.AdminRepository;
 
-@CrossOrigin
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/admin")
 

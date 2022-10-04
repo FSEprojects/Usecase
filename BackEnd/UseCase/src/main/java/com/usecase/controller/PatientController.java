@@ -26,7 +26,7 @@ import com.usecase.entity.PatientInduction;
 import com.usecase.message.message;
 import com.usecase.repository.PatientInductionRepository;
 
-@CrossOrigin
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/admin")
 public class PatientController {
@@ -78,6 +78,10 @@ public class PatientController {
 	    message = "Please upload a csv file!";
 	    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new message(message));
 	  }
+	  @GetMapping("/patients/{patientId}")
+		PatientInduction getPatientId(@Valid @PathVariable("patientId") String Patient_Id) {
+			return patientService.getPatientId(Patient_Id);
+	  }
 	  @GetMapping("/patients")
 	  public ResponseEntity<List<PatientInduction>> getPatients() {
 	    try {
@@ -93,7 +97,7 @@ public class PatientController {
 	    }
 	  }
 	  
-	  @PostMapping("/update")
+	  @PostMapping("/updatepatient")
 	  public PatientInduction update(@Valid @RequestBody PatientInduction patient1 )
 	  {
 		  
