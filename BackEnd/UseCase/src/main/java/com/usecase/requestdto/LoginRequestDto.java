@@ -2,6 +2,9 @@ package com.usecase.requestdto;
 
 import javax.validation.constraints.NotBlank;
 
+import lombok.Data;
+
+@Data
 public class LoginRequestDto {
 	
 	@NotBlank(message = "Username must not be empty")

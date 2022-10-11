@@ -36,7 +36,7 @@ public class PatientInduction {
 //	@NotBlank(message="DOB cannot be blank")
 //	@DateTimeFormat(pattern="MM-DD-YYYY")
 //	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-	private Long DOB;
+	private String DOB;
 //	@NotBlank(message="Email cannot be blank")
 //	@email("Email should be valid")
 	private String Email;
@@ -53,7 +53,7 @@ public class PatientInduction {
 	{
 		
 	}
-	public PatientInduction(Long Patient_Id,String Patient_Name,String Patient_Address,Long DOB,String Email,Long Contact_Number,Long Drug_Id,String Drug_Name)
+	public PatientInduction(Long Patient_Id,String Patient_Name,String Patient_Address,String DOB,String Email,Long Contact_Number,Long Drug_Id,String Drug_Name)
 	{
 		this.Patient_Id=Patient_Id;
 		this.Patient_Name=Patient_Name;

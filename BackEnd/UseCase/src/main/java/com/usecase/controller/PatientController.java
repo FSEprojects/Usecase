@@ -64,6 +64,7 @@ public class PatientController {
 	    System.out.println("befor if");
 	    if (CsvHelper.hasCSVFormat(file)) {
 	      try {
+	    	  
 	    	  System.out.println("befor file");
 	    	  fileservice.save(file);
 	    	  System.out.println("after file");
@@ -97,7 +98,7 @@ public class PatientController {
 	    }
 	  }
 	  
-	  @PostMapping("/updatepatient")
+	  @PostMapping("/upload/updatepatient")
 	  public PatientInduction update(@Valid @RequestBody PatientInduction patient1 )
 	  {
 		  

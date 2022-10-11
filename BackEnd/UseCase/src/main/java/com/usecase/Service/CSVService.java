@@ -33,6 +33,7 @@ public class CSVService {
 	      System.out.println("fg");
 	      patientslist.forEach(System.out::println);
 	      System.out.println("rg");
+	      
 	      patientInductionRepository.saveAll(patientslist);
 
 //	      System.out.println(patientslist);

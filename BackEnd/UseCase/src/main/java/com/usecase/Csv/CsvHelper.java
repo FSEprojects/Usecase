@@ -48,11 +48,11 @@ public class CsvHelper {
 		    			  Long.parseLong(csvRecord.get("Patient_Id")), 
 		    			  csvRecord.get("Patient_Name"),
 		    			  csvRecord.get("Patient_Address"),
-		    			  Long.parseLong(csvRecord.get("DOB")), 
+		    			  csvRecord.get("DOB"), 
 		    			csvRecord.get("Email"),
 		    			Long.parseLong(csvRecord.get("Contact_Number")),
-		    	  Long.parseLong(csvRecord.get("Drug_Id")), TYPE);
-		    			  csvRecord.get("Drug_Name");
+		    	  Long.parseLong(csvRecord.get("Drug_Id")),
+		    			  csvRecord.get("Drug_Name"));
 		    	  patientlist.add(patientInduction);
 		    	  
 		    	  System.out.println("get");
