@@ -3,6 +3,9 @@ package com.usecase.requestdto;
 import javax.validation.constraints.NotBlank;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 
 @Data
 public class LoginRequestDto {

@@ -54,7 +54,7 @@ public class UserController {
 			if (decodedPwd.equals(admin.getPassword())) {
 				return new ResponseEntity(existingUser,HttpStatus.OK);
 			}else {
-				return new ResponseEntity<>("Password is wrong",HttpStatus.OK);
+				return new ResponseEntity<>("Password is wrong",HttpStatus.BAD_REQUEST);
 			}
 		}
 		return new ResponseEntity("UserName is wrong",HttpStatus.OK);

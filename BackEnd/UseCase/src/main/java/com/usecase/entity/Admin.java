@@ -13,8 +13,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Data
-@Table
+
+//@Table
 @Getter
 @Setter
 public class Admin {
@@ -24,13 +24,13 @@ public class Admin {
 	private Long id;
 	@NotBlank(message="Username cannot be blank")
 	private String username;
-	@NotBlank(message="Username cannot be blank")
+	@NotBlank(message="Password cannot be blank")
 	@Size(min=8,max=20)
 	private String password;
-//	private String userrole;
+	private String userrole;
 	
-//	public User() {
-//		
-//	}
+	public Admin() {
+		
+	}
 
 }

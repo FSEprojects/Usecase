@@ -7,12 +7,14 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.usecase.entity.PatientInduction;
+import com.usecase.entity.Patient;
 import com.usecase.repository.AdminRepository;
 import com.usecase.repository.PatientInductionRepository;
 
+@Transactional
 @Service
 public class PatientService {
 	
@@ -23,30 +25,14 @@ public class PatientService {
 	PatientInductionRepository patientInductionRepository;
 	
 	
-//	public PatientInduction loadpatientdata( PatientInduction patientInduction) {
-//		Optional<PatientInduction> PatientInductionToUpdate = patientInductionRepository.findById((long) Id);
-//		if (PatientInductionToUpdate.isPresent()) {
-//			PatientInduction loadpatientdata = PatientInductionToUpdate.get();
-//			loadpatientdata.setPatient_Name(patientInduction.getPatient_Name());
-//			loadpatientdata.setPatient_Address(patientInduction.getPatient_Address());
-//			loadpatientdata.setDOB(patientInduction.getDOB());
-//			loadpatientdata.setEmail(patientInduction.getEmail());
-//			loadpatientdata.setContact_Number(patientInduction.getContact_Number());
-//			loadpatientdata.setDrug_Id(patientInduction.getDrug_Id());
-//			loadpatientdata.setDrug_Name(patientInduction.getDrug_Name());
-//			return patientInductionRepository.save(loadpatientdata);
-//		}
-//
-//		return null;
-//
-//	}
-	 public PatientInduction update(@Valid @RequestBody PatientInduction patient1 )
-	  {
+		@Transactional("rollbackFor= [java.sql.SQLException]")
+	 public Patient update(@Valid @RequestBody Patient patient1 )
+	 {
 		  
 		  
 			
-		  Optional<PatientInduction> p1=patientInductionRepository.findById(patient1.getPatient_Id());
-		  PatientInduction updatepatient=new PatientInduction();
+		  Optional<Patient> p1=patientInductionRepository.findById(patient1.getPatient_Id());
+		  Patient updatepatient=new Patient();
 		  updatepatient.setPatient_Id(patient1.getPatient_Id());
 		  updatepatient.setContact_Number(patient1.getContact_Number());
 		  updatepatient.setPatient_Address(patient1.getPatient_Address());
@@ -57,13 +43,13 @@ public class PatientService {
 		  updatepatient.setDrug_Name(patient1.getDrug_Name());
 		  
 		  return patientInductionRepository.save(updatepatient);
-	  }
+	  } 
 	 
-	 public PatientInduction getPatientId(String Patient_Id) {
+	 public Patient getPatientId(String Patient_Id) {
 			return patientInductionRepository.getPatientById(Patient_Id);
 		}
 	 
-	 public List<PatientInduction> getPatients() {
+	 public List<Patient> getPatients() {
 		    return patientInductionRepository.findAll();
 		  }
 

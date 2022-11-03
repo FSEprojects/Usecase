@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.usecase.Csv.CsvHelper;
-import com.usecase.entity.PatientInduction;
+import com.usecase.entity.Patient;
 import com.usecase.repository.PatientInductionRepository;
 
 
@@ -29,7 +29,7 @@ public class CSVService {
 	public void save(MultipartFile file) {
 		 System.out.println("call at save");
 	    try {
-	      List<PatientInduction> patientslist = CsvHelper.csvToPatient(file.getInputStream());
+	      List<Patient> patientslist = CsvHelper.csvToPatient(file.getInputStream());
 	      System.out.println("fg");
 	      patientslist.forEach(System.out::println);
 	      System.out.println("rg");
@@ -42,7 +42,7 @@ public class CSVService {
 	    }
 	  }
 
-	  public List<PatientInduction> getPatients() {
+	  public List<Patient> getPatients() {
 	    return patientInductionRepository.findAll();
 	  }
 

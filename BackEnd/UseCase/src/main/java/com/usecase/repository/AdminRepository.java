@@ -17,7 +17,9 @@ public interface AdminRepository extends JpaRepository<Admin, Long> {
 	@Query(value = "Select * from admin a where a.username=:username", nativeQuery = true)
 	public Admin getUser(@Param("username") String username);
 	
-	Boolean existsByusername(String userName);
+	
+	
+	Boolean existsByusername(String username);
 
 
 }

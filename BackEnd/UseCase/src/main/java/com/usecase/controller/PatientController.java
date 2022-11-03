@@ -22,7 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.usecase.Csv.CsvHelper;
 import com.usecase.Service.CSVService;
 import com.usecase.Service.PatientService;
-import com.usecase.entity.PatientInduction;
+import com.usecase.entity.Patient;
 import com.usecase.message.message;
 import com.usecase.repository.PatientInductionRepository;
 
@@ -80,13 +80,13 @@ public class PatientController {
 	    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new message(message));
 	  }
 	  @GetMapping("/patients/{patientId}")
-		PatientInduction getPatientId(@Valid @PathVariable("patientId") String Patient_Id) {
+		Patient getPatientId(@Valid @PathVariable("patientId") String Patient_Id) {
 			return patientService.getPatientId(Patient_Id);
 	  }
 	  @GetMapping("/patients")
-	  public ResponseEntity<List<PatientInduction>> getPatients() {
+	  public ResponseEntity<List<Patient>> getPatients() {
 	    try {
-	      List<PatientInduction> patientslist = fileservice.getPatients();
+	      List<Patient> patientslist = fileservice.getPatients();
 
 	      if (patientslist.isEmpty()) {
 	        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -99,13 +99,17 @@ public class PatientController {
 	  }
 	  
 	  @PostMapping("/upload/updatepatient")
-	  public PatientInduction update(@Valid @RequestBody PatientInduction patient1 )
+	  public Patient update(@Valid @RequestBody Patient patient1 )
 	  {
 		  
 		  
-			
-		  Optional<PatientInduction> p1=patientInductionRepository.findById(patient1.getPatient_Id());
-		  PatientInduction updatepatient=new PatientInduction();
+		  
+		  Optional<Patient> p1=patientInductionRepository.findById(patient1.getPatient_Id());
+		  
+		  
+		  
+		  
+		  Patient updatepatient= p1.get();
 		  updatepatient.setPatient_Id(patient1.getPatient_Id());
 		  updatepatient.setContact_Number(patient1.getContact_Number());
 		  updatepatient.setPatient_Address(patient1.getPatient_Address());
@@ -114,21 +118,22 @@ public class PatientController {
 		  updatepatient.setDOB(patient1.getDOB());
 		  updatepatient.setDrug_Id(patient1.getDrug_Id());
 		  updatepatient.setDrug_Name(patient1.getDrug_Name());
+		  updatepatient.setStatus("Approved");
 		  
 		  return patientInductionRepository.save(updatepatient);
 	  }
 	  
-	  @GetMapping("/patientbyid/{patientId}")
-	  public Object  getPatientyByid(@Valid @PathVariable("patientId") Long patientId){
-		  
-		  String url = "http://localhost:8098/load/retrieve/ ";
-
-			PatientInduction patient = this.restTemplate.getForObject(url + patientId, PatientInduction.class);
-		  
-		  Optional<PatientInduction> getpatient = patientInductionRepository.findById(patientId);
-
-	        return getpatient;
-	    }
+//	  @GetMapping("/patientbyid/{patientId}")
+//	  public Object  getPatientyByid(@Valid @PathVariable("patientId") Long patientId){
+//		  
+//		  String url = "http://localhost:8098/load/retrieve/ ";
+//
+//			PatientInduction patient = this.restTemplate.getForObject(url + patientId, PatientInduction.class);
+//		  
+//		  Optional<PatientInduction> getpatient = patientInductionRepository.findById(patientId);
+//
+//	        return getpatient;
+//	    }
 	
 	
 	
